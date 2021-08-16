@@ -102,12 +102,13 @@ namespace BNetInstaller
             var cursorLeft = Console.CursorLeft;
             var cursorTop = Console.CursorTop;
 
-            static void Print(string label, object value)
-            {
-                Console.Write(label.PadRight(20, ' '));
-                Console.WriteLine(value.ToString().PadRight(20, ' '));
-            }
+            // static void Print(string label, object value)
+            // {
+            //     Console.Write(label.PadRight(20, ' '));
+            //     Console.WriteLine(value.ToString().PadRight(20, ' '));
+            // }
 
+            Console.WriteLine($"Downloading {options.Product} | Language {locale} | Directory {options.Directory}");
             while (true)
             {
                 var stats = await endpoint.Get();
@@ -123,12 +124,13 @@ namespace BNetInstaller
 
                 if (progress.HasValue)
                 {
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    Print("Downloading:", options.Product);
-                    Print("Language:", locale);
-                    Print("Directory:", options.Directory);
-                    Print("Progress:", progress.Value.ToString("P4"));
-                    Print("Playable:", playable.GetValueOrDefault());
+                    Console.WriteLine($"Progress: {progress.Value.ToString("P4")} | Playable: {playable.GetValueOrDefault()}");
+                    // Console.SetCursorPosition(cursorLeft, cursorTop);
+                    // Print("Downloading:", options.Product);
+                    // Print("Language:", locale);
+                    // Print("Directory:", options.Directory);
+                    // Print("Progress:", progress.Value.ToString("P4"));
+                    // Print("Playable:", playable.GetValueOrDefault());
                     await Task.Delay(2000);
 
                     // exit @ 100%

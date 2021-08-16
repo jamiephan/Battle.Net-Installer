@@ -1,3 +1,7 @@
+# Changes in the Fork:
+
+Simply Modifies the Logging function to allow the program run in non-console environment, e.g Github Workflow
+
 # Battle.Net Installer
 
 A tool for installing, updating and repairing games via Blizzard's Battle.net application. This tool can either be run directly or via command line using the below arguments.
