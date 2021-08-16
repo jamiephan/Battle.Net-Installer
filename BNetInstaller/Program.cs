@@ -99,8 +99,8 @@ namespace BNetInstaller
         private static async Task<bool> ProgressLoop(Options options, ProductEndpoint endpoint)
         {
             var locale = options.Locale.ToString();
-            var cursorLeft = Console.CursorLeft;
-            var cursorTop = Console.CursorTop;
+            // var cursorLeft = Console.CursorLeft;
+            // var cursorTop = Console.CursorTop;
 
             // static void Print(string label, object value)
             // {
