@@ -21,15 +21,18 @@ namespace BNetInstaller
         public readonly VersionEndpoint VersionEndpoint;
 
         private readonly string AgentPath;
-        private readonly int Port = 5050;
+        private int Port;
 
         private Process Process;
         private Requester Requester;
 
-        public AgentApp()
+        public AgentApp(int agentPort)
         {
+            Port = agentPort > 0 ? agentPort : 5050; // Use default if no port or invalid port is given
             AgentPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Battle.net", "Agent", "Agent.exe");
 
+            Console.WriteLine($"Agent Path: {AgentPath}");
+            Console.WriteLine($"Agent Port: {Port}");
             if (!StartProcess())
             {
                 Console.WriteLine("Please ensure Battle.net is installed and has recently been opened.");

@@ -27,7 +27,7 @@ namespace BNetInstaller
 
         private static async Task Run(Options options)
         {
-            using var app = new AgentApp();
+            using var app = new AgentApp(options.AgentPort);
             options.Sanitise();
 
             var locale = options.Locale.ToString();

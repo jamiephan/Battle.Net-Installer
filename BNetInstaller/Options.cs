@@ -22,6 +22,9 @@ namespace BNetInstaller
         [Option("repair", HelpText = "Run installation repair")]
         public bool Repair { get; set; }
 
+        [Option("agent-port", HelpText = "Agent port")]
+        public int AgentPort { get; set; }
+
         public void Sanitise()
         {
             // ensure a UID exists
